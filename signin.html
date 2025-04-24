@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Join Our Platform | Select Your Role</title>
+  <meta name="description" content="Choose whether you're a student looking for opportunities or an employer seeking talent">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="signin.css">
+</head>
+<body>
+  <div class="container">
+    <img class="logo1"src="photos/InternshipHive-removebg-preview (1).png" alt="Logo1" >
+    <div class="logo" style="margin: 0 auto; height: 80px; width: 80px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 2rem; font-weight: bold;"></div>
+    <h1>Welcome to InternsHive</h1>
+    <p class="subtitle">Select your role to get started on your journey</p>
+    
+    <div class="role-options">
+      <div class="role-card" onclick="location.href='signupstudent.html?role=student'">
+        <div class="role-icon">🎓</div>
+        <div class="role-content">
+          <h3>I'm a Student</h3>
+          <p>Looking for internships, jobs, and career opportunities. Build your profile and connect with employers.</p>
+        </div>
+      </div>
+      
+      <div class="role-card" onclick="location.href='signupemployer.html?role=employer'">
+        <div class="role-icon">💼</div>
+        <div class="role-content">
+          <h3>I'm an Employer</h3>
+          <p>Seeking talented students and graduates. Post opportunities and find your next great hire.</p>
+        </div>
+      </div>
+    </div>
+    
+    <p class="footer-text">
+      Not sure which to choose? <a href="about.html">Learn more about our platform</a>
+    </p>
+  </div>
+</body>
+</html>

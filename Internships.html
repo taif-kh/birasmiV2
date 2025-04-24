@@ -1,0 +1,721 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="Internships.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <title>Job Application Website</title>
+
+</head>
+
+<body>
+    <script src="Internships.js" defer></script>
+    
+    
+    <div class="sidebar">
+        <!-- Profile Container -->
+        <div class="profile-container">
+            <a href="listOfApps.html" class="profile-link">
+                <div class="user-profile" id="userProfile">
+                    <div class="profile-image">
+                        <img src="photos\IMG_9525.png" width="60" height="60" alt="Profile" style="border-radius: 50%; object-fit: cover;" />
+                      </div>
+                      
+                  <div class="welcome-text">
+                    <h3>Welcome,</h3>
+                    <div class="user-name">Issra Ouedrni</div>
+                    <div class="user-title">Student</div>
+                    <div class="user-location">Monastir</div>
+                  </div>
+                </div>
+              </a>
+            </div>
+        
+        <!-- Navigation Links -->
+        <div class="nav-links">
+            <!-- Home Link -->
+            <a href="Student.html" class="nav-link">
+                <i class="nav-icon">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04c.39-.39.39-1.02 0-1.41l-2.34-2.34c-.39-.39-1.02-.39-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z" fill="currentColor"/>
+                    </svg>
+                </i>
+                <span>Modify Profile</span>
+            </a>
+
+
+
+            <a href="index.html" class="nav-link">
+                <i class="nav-icon">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8h5z" fill="currentColor"/>
+                    </svg>
+                </i>
+                <span>Home</span>
+            </a>
+            
+            <!-- Want to post an internship link -->
+            <!-- 
+            <a href="post-internship.html" class="nav-link">
+                <i class="nav-icon">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-2 10h-4v4h-2v-4H7v-2h4V7h2v4h4v2z" fill="currentColor"/>
+                    </svg>
+                </i>
+                <span>Want to post an internship?</span>
+            </a> 
+            -->
+            
+            <!-- Modify Profile Link -->
+        </div>
+        
+        <!-- Logout Button (at the bottom) -->
+        <div class="logout-container">
+            <a href="index.html" class="logout-button">
+                <i class="logout-icon">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M17 7l-1.41 1.41L18.17 11H8v2h10.17l-2.58 2.58L17 17l5-5-5-5zM4 5h8V3H4c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h8v-2H4V5z" fill="currentColor"/>
+                    </svg>
+                </i>
+                <span>Logout</span>
+            </a>
+        </div>
+    </div>
+
+
+  <div class="content-container">
+    <div class="main" id="top">
+        <div class="main-header">
+            
+            <div class="search">
+                <input type="text" id="search-bar" placeholder="Search Your Best internship Here...">
+                <button class="btn-search" id="find-jobs"><i class='bx bx-search'></i></button>
+            </div>
+        </div>
+
+
+        <div class="filter-wrapper">
+            <div class="filter-container">
+                <button class="scroll-arrow left-arrow">
+                    <i class="fas fa-chevron-left"></i>
+                </button>
+                
+                <div class="filter-buttons-wrapper">
+                    <div class="filter">
+                        <button class="btn-filter active">All</button>
+                        <button class="btn-filter">Cloud Engineer</button>
+                        <button class="btn-filter">Machine Learning</button>
+                        <button class="btn-filter">DevOps Engineer</button>
+                        <button class="btn-filter">Software Engineer</button>
+                        <button class="btn-filter">Data Science</button>
+                        <button class="btn-filter">Web Development</button>
+                        <button class="btn-filter">Mobile Development</button>
+                        <button class="btn-filter">UI/UX Design</button>
+                        <button class="btn-filter">Cybersecurity</button>
+                        <button class="btn-filter">AI Research</button>
+                    </div>
+                </div>
+                
+                <button class="scroll-arrow right-arrow">
+                    <i class="fas fa-chevron-right"></i>
+                </button>
+            </div>
+        </div>
+
+
+            <div class="wrapper">
+                <script>
+                window.onload = async () => {
+                    try {
+                        const response = await fetch('http://localhost:3001/internships');
+                        const internships = await response.json();
+                
+                        const container = document.querySelector('.wrapper'); // Add cards inside this container
+                
+                        internships.forEach(internship => {
+                            const div = document.createElement('div');
+                            div.classList.add('card');
+                
+                            div.innerHTML = `
+                                <div class="card-left blue-bg">
+                                    <img src="${internship.logo || 'photos/default_logo.jpg'}" alt="${internship.title} logo">
+                                </div>
+                                <div class="card-center">
+                                    <h3>${internship.company}</h3>
+                                    <p class="card-detail">${internship.title}</p>
+                                    <p class="card-loc"><i class='bx bx-current-location'></i> ${internship.location}</p>
+                                    <div class="card-sub">
+                                        <p><i class='bx bx-calendar-event'></i> ${internship.posted || 'Just now'}</p>
+                                        <p><i class='bx bxs-user-detail'></i> ${internship.applicants || 0} Applicants</p>
+                                    </div>
+                                </div>
+                                <div class="card-right">
+                                    <div class="internship-details">
+                                        <div class="label-container">
+                                            <div class="location-label">
+                                                <i class="fas fa-map-marker-alt"></i> ${internship.mode || 'On-site'}
+                                            </div>
+                                            <div class="duration-label">
+                                                <i class="far fa-clock"></i> ${internship.duration || 'Internship'}
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            `;
+                
+                            container.appendChild(div);
+                        });
+                    } catch (error) {
+                        console.error('Error fetching internships:', error);
+                    }
+                };
+            </script>
+                
+
+
+            <div class="card">
+                <div class="card-left blue-bg">
+                    <img src="photos\telnet.jpg">
+                </div>
+                <div class="card-center">
+                    <h3>telnet</h3>
+                    <p class="card-detail"> DevOps Engineer</p>
+                    <p class="card-loc"><i class='bx bx-current-location'></i> Rue Du Lac Léman, Les Berges du Lac, Tunis 1053</p>
+                    <div class="card-sub">
+                        <p><i class='bx bx-calendar-event'></i> 1 day ago</p>
+                        <p><i class='bx bxs-user-detail'> 2 Applicants</i></p>
+                    </div>
+                </div>
+                <div class="card-right">
+                    <div class="internship-details">
+                        <div class="label-container">
+                            <div class="location-label">
+                                <i class="fas fa-map-marker-alt"></i> Hybrid
+                            </div>
+                            <div class="duration-label">
+                                <i class="far fa-clock"></i> PFE Internship
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-left blue-bg">
+                    <img src="photos\wevioo.png">
+                </div>
+                <div class="card-center">
+                    <h3>Wevioo</h3>
+                    <p class="card-detail"> Cloud Engineer</p>
+                    <p class="card-loc"><i class='bx bx-current-location'></i> Technopark El Ghazala, 2088 Ariana, Tunisia</p>
+                    <div class="card-sub">
+                        <p><i class='bx bx-calendar-event'></i> 1 day ago</p>
+                        <p><i class='bx bxs-user-detail'> 2 Applicants</i></p>
+                    </div>
+                </div>
+                <div class="card-right">
+                    <div class="internship-details">
+                        <div class="label-container">
+                            <div class="location-label">
+                                <i class="fas fa-map-marker-alt"></i> Hybrid
+                            </div>
+                            <div class="duration-label">
+                                <i class="far fa-clock"></i> PFE Internship
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="card">
+                <div class="card-left blue-bg">
+                    <img src="photos\Cybersa.jpg">
+                </div>
+                <div class="card-center">
+                    <h3>Cyberesa</h3>
+                    <p class="card-detail"> Software Engineer</p>
+                    <p class="card-loc"><i class='bx bx-current-location'></i> Golden Towers, Bloc B – 7th Floor – App 7-8, Centre Urbain Nord, 1082 Tunis, Tunisia</p>
+                    <div class="card-sub">
+                        <p><i class='bx bx-calendar-event'></i> 1 day ago</p>
+                        <p><i class='bx bxs-user-detail'> 4 Applicants</i></p>
+                    </div>
+                </div>
+                <div class="card-right">
+                    <div class="internship-details">
+                        <div class="label-container">
+                            <div class="location-label">
+                                <i class="fas fa-map-marker-alt"></i> Remote
+                            </div>
+                            <div class="duration-label">
+                                <i class="far fa-clock"></i> Summer Internship
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-left blue-bg">
+                    <img src="photos\datavora.png">
+                </div>
+                <div class="card-center">
+                    <h3>DataVora</h3>
+                    <p class="card-detail"> Data Science</p>
+                    <p class="card-loc"><i class='bx bx-current-location'></i> Rue du Lac Biwa, Immeuble Fraj – 2nd Floor, 1053 Les Berges du Lac, Tunis, Tunisia</p>
+                    <div class="card-sub">
+                        <p><i class='bx bx-calendar-event'></i> 4 days ago</p>
+                        <p><i class='bx bxs-user-detail'> 8 Applicants</i></p>
+                    </div>
+                </div>
+                <div class="card-right">
+                    <div class="internship-details">
+                        <div class="label-container">
+                            <div class="location-label">
+                                <i class="fas fa-map-marker-alt"></i> On-Site
+                            </div>
+                            <div class="duration-label">
+                                <i class="far fa-clock"></i> PFE Internship
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="card">
+                <div class="card-left blue-bg">
+                    <img src="photos\InstaDeep.png">
+                </div>
+                <div class="card-center">
+                    <h3>InstaDeep</h3>
+                    <p class="card-detail"> Web Development</p>
+                    <p class="card-loc"><i class='bx bx-current-location'></i> Imm Skazar 2, Rue Alfred Nobel, Les Berges du Lac 3, 2089 Tunis, Tunisia</p>
+                    <div class="card-sub">
+                        <p><i class='bx bx-calendar-event'></i> 1 week ago</p>
+                        <p><i class='bx bxs-user-detail'> 6 Applicants</i></p>
+                    </div>
+                </div>
+                <div class="card-right">
+                    <div class="internship-details">
+                        <div class="label-container">
+                            <div class="location-label">
+                                <i class="fas fa-map-marker-alt"></i> On-Site
+                            </div>
+                            <div class="duration-label">
+                                <i class="far fa-clock"></i> PFE Internship
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="card">
+                <div class="card-left blue-bg">
+                    <img src="photos\IntilaQ.webp">
+                </div>
+                <div class="card-center">
+                    <h3>IntilaQ</h3>
+                    <p class="card-detail"> Mobile Development</p>
+                    <p class="card-loc"><i class='bx bx-current-location'></i> Bloc E2, Technopole El Ghazela, Km 3.5 Route de Raoued, Ariana, Tunisia</p>
+                    <div class="card-sub">
+                        <p><i class='bx bx-calendar-event'></i> 2 weeks ago</p>
+                        <p><i class='bx bxs-user-detail'> 2 Applicants</i></p>
+                    </div>
+                </div>
+                <div class="card-right">
+                    <div class="internship-details">
+                        <div class="label-container">
+                            <div class="location-label">
+                                <i class="fas fa-map-marker-alt"></i> Remote
+                            </div>
+                            <div class="duration-label">
+                                <i class="far fa-clock"></i> Summer Internship
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="card">
+                <div class="card-left blue-bg">
+                    <img src="photos\oct.png">
+                </div>
+                <div class="card-center">
+                    <h3>OCT</h3>
+                    <p class="card-detail"> UI/UX Design</p>
+                    <p class="card-loc"><i class='bx bx-current-location'></i> Zone Industrielle, Route Al-Battah, Radès, Ben Arous, Tunisia</p>
+                    <div class="card-sub">
+                        <p><i class='bx bx-calendar-event'></i> 1 month ago</p>
+                        <p><i class='bx bxs-user-detail'> 14 Applicants</i></p>
+                    </div>
+                </div>
+                <div class="card-right">
+                    <div class="internship-details">
+                        <div class="label-container">
+                            <div class="location-label">
+                                <i class="fas fa-map-marker-alt"></i> Hybrid
+                            </div>
+                            <div class="duration-label">
+                                <i class="far fa-clock"></i> PFE Internship
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-left blue-bg">
+                    <img src="photos\orange.png">
+                </div>
+                <div class="card-center">
+                    <h3>Orange</h3>
+                    <p class="card-detail"> Cybersecurity</p>
+                    <p class="card-loc"><i class='bx bx-current-location'></i> Building Sterling, Rue du Lac Biwa, Les Berges du Lac 1, 1053 Tunis, Tunisia</p>
+                    <div class="card-sub">
+                        <p><i class='bx bx-calendar-event'></i> 2 months ago</p>
+                        <p><i class='bx bxs-user-detail'> 30 Applicants</i></p>
+                    </div>
+                </div>
+                <div class="card-right">
+                    <div class="internship-details">
+                        <div class="label-container">
+                            <div class="location-label">
+                                <i class="fas fa-map-marker-alt"></i> On-Site
+                            </div>
+                            <div class="duration-label">
+                                <i class="far fa-clock"></i> Summer Internship
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="card">
+                <div class="card-left blue-bg">
+                    <img src="photos\value_tunisie_logo.jpg">
+                </div>
+                <div class="card-center">
+                    <h3>Value</h3>
+                    <p class="card-detail"> AI Research</p>
+                    <p class="card-loc"><i class='bx bx-current-location'></i> 60 Avenue Principale, Les Berges du Lac 1, 1053 Tunis, Tunisia</p>
+                    <div class="card-sub">
+                        <p><i class='bx bx-calendar-event'></i> 3 months ago</p>
+                        <p><i class='bx bxs-user-detail'> 28 Applicants</i></p>
+                    </div>
+                </div>
+                <div class="card-right">
+                    <div class="internship-details">
+                        <div class="label-container">
+                            <div class="location-label">
+                                <i class="fas fa-map-marker-alt"></i> Remote
+                            </div>
+                            <div class="duration-label">
+                                <i class="far fa-clock"></i> Summer Internship
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    </div>
+    </div>
+
+
+    <div class="detail" id="job-detail-vermeg">
+        <button class="close-btn"><i class='bx bx-window-close'></i></button>
+        <div class="detail-header">
+            <img id="detail-img" src="photos\vermeg_logo.jpg">
+            <h2 id="detail-title">Vermeg</h2>
+            <p id="detail-role">Artificial Intelligence (AI), Machine Learning Engineer</p>
+        </div>
+        <hr class="divider">
+        <div class="detail-desc">
+            <div class="about">
+                <h4>About Company</h4>
+                <p id="detail-about">Vermeg:
+                    Join a global fintech leader!
+Vermeg specializes in digital solutions for banking and insurance. Interns here dive into cutting-edge financial software development, gaining experience with international teams and real-world challenges in fintech innovation.</p>
+                    <a href="https://www.vermeg.com/">Read More</a>
+            </div>
+            <hr class="divider">
+            <div class="detail-btn">
+               <button class="btn-apply">Apply Now</button>
+            </div>   
+        </div>
+        </div>
+
+        <div class="detail" id="job-detail-telnet">
+            <button class="close-btn"><i class='bx bx-window-close'></i></button>
+            <div class="detail-header">
+                <img id="detail-img" src="photos\telnet.jpg">
+                <h2 id="detail-title">telnet</h2>
+                <p id="detail-role">DevOps Engineer</p>
+            </div>
+            <hr class="divider">
+            <div class="detail-desc">
+                <div class="about">
+                    <h4>About Company</h4>
+                    <p id="detail-about">telnet:
+                        Innovate the future with Telnet!
+Telnet offers engineering and technology consulting across embedded systems, telecom, and aerospace. As an intern, you'll work on high-tech projects and contribute to real R&D alongside seasoned engineers.</p>
+                        <a href="https://groupe-telnet.com/fr/">Read More</a>
+                </div>
+                <hr class="divider">
+                <div class="detail-btn">
+                   <button class="btn-apply">Apply Now</button>
+                </div>   
+            </div>
+            </div>
+
+            <div class="detail" id="job-detail-wevioo">
+                <button class="close-btn"><i class='bx bx-window-close'></i></button>
+                <div class="detail-header">
+                    <img id="detail-img" src="photos\wevioo.png">
+                    <h2 id="detail-title">Wevioo</h2>
+                    <p id="detail-role">Cloud Engineer</p>
+                </div>
+                <hr class="divider">
+                <div class="detail-desc">
+                    <div class="about">
+                        <h4>About Company</h4>
+                        <p id="detail-about">Wevioo:
+                            Shape digital transformation with us!
+Wevioo focuses on smart technologies, digital transformation, and consulting. Interns are exposed to real enterprise solutions in fields like data, cloud, and AI, making it the perfect place to grow.</p>
+                            <a href="https://www.wevioo.com/en">Read More</a>
+                    </div>
+                    <hr class="divider">
+                    <div class="detail-btn">
+                       <button class="btn-apply">Apply Now</button>
+                    </div>   
+                </div>
+                </div>
+
+
+
+                    <div class="detail" id="job-detail-cyberesa">
+                        <button class="close-btn"><i class='bx bx-window-close'></i></button>
+                        <div class="detail-header">
+                            <img id="detail-img" src="photos\Cybersa.jpg">
+                            <h2 id="detail-title">Cyberesa</h2>
+                            <p id="detail-role">Software Engineer</p>
+                        </div>
+                        <hr class="divider">
+                        <div class="detail-desc">
+                            <div class="about">
+                                <h4>About Company</h4>
+                                <p id="detail-about">Cyberesa:
+                                    Secure the digital world with us!
+Cyberesa focuses on cybersecurity and secure payment systems. Interns contribute to systems that protect users and data, gaining hands-on experience in one of the most in-demand tech fields.</p>
+                                    <a href="https://www.cyberesa.net/en/">Read More</a>
+                            </div>
+                            <hr class="divider">
+                            <div class="detail-btn">
+                               <button class="btn-apply">Apply Now</button>
+                            </div>   
+                        </div>
+                        </div>
+
+
+                        <div class="detail" id="job-detail-datavora">
+                            <button class="close-btn"><i class='bx bx-window-close'></i></button>
+                            <div class="detail-header">
+                                <img id="detail-img" src="photos\datavora.png">
+                                <h2 id="detail-title">DataVora</h2>
+                                <p id="detail-role">Data Science</p>
+                            </div>
+                            <hr class="divider">
+                            <div class="detail-desc">
+                                <div class="about">
+                                    <h4>About Company</h4>
+                                    <p id="detail-about">DataVora:
+                                        Explore the world of e-commerce data!
+Datavora provides e-commerce analytics and market intelligence. Interns analyze data at scale and work on smart tools that help companies make informed, data-driven decisions.</p>
+                                        <a href="https://datavora.com/">Read More</a>
+                                </div>
+                                <hr class="divider">
+                                <div class="detail-btn">
+                                   <button class="btn-apply">Apply Now</button>
+                                </div>   
+                            </div>
+                            </div>
+
+
+                        <div class="detail" id="job-detail-instadeep">
+                            <button class="close-btn"><i class='bx bx-window-close'></i></button>
+                            <div class="detail-header">
+                                <img id="detail-img" src="photos\InstaDeep.png">
+                                <h2 id="detail-title">InstaDeep</h2>
+                                <p id="detail-role">Web Development</p>
+                            </div>
+                            <hr class="divider">
+                            <div class="detail-desc">
+                                <div class="about">
+                                    <h4>About Company</h4>
+                                    <p id="detail-about">InstaDeep:
+                                        AI that matters – join the revolution!
+InstaDeep is a global AI company with projects in deep reinforcement learning and biotech. Interns collaborate on meaningful AI research and get mentorship from experts pushing the limits of machine learning.</p>
+                                        <a href="https://www.instadeep.com/">Read More</a>
+                                </div>
+                                <hr class="divider">
+                                <div class="detail-btn">
+                                   <button class="btn-apply">Apply Now</button>
+                                </div>   
+                            </div>
+                            </div>
+
+
+                            <div class="detail" id="job-detail-IntilaQ">
+                                <button class="close-btn"><i class='bx bx-window-close'></i></button>
+                                <div class="detail-header">
+                                    <img id="detail-img" src="photos\IntilaQ.webp">
+                                    <h2 id="detail-title">IntilaQ</h2>
+                                    <p id="detail-role">Mobile Development</p>
+                                </div>
+                                <hr class="divider">
+                                <div class="detail-desc">
+                                    <div class="about">
+                                        <h4>About Company</h4>
+                                        <p id="detail-about">IntilaQ:
+                                            Launch your career with a startup spirit!
+IntilaQ is a tech hub and incubator helping startups grow. Interns are immersed in entrepreneurship, innovation, and real startup culture – perfect for those who love fast-paced learning.</p>
+                                            <a href="https://intilaq.tn/">Read More</a>
+                                    </div>
+                                    <hr class="divider">
+                                    <div class="detail-btn">
+                                       <button class="btn-apply">Apply Now</button>
+                                    </div>   
+                                </div>
+                                </div>
+
+
+                                <div class="detail" id="job-detail-oct">
+                                    <button class="close-btn"><i class='bx bx-window-close'></i></button>
+                                    <div class="detail-header">
+                                        <img id="detail-img" src="photos\oct.png">
+                                        <h2 id="detail-title">OCT</h2>
+                                        <p id="detail-role">UI/UX Design</p>
+                                    </div>
+                                    <hr class="divider">
+                                    <div class="detail-desc">
+                                        <div class="about">
+                                            <h4>About Company</h4>
+                                            <p id="detail-about">OCT:
+                                                Empowering industries through digitalization!
+OCT provides IT services and automation solutions to various sectors. Interns take part in practical software development and systems integration tailored to industrial clients.</p>
+                                                <a href="https://www.tradeatlas.com/en/firms/oct-tunis/ce8bcc7db3dc3b2c">Read More</a>
+                                        </div>
+                                        <hr class="divider">
+                                        <div class="detail-btn">
+                                           <button class="btn-apply">Apply Now</button>
+                                        </div>   
+                                    </div>
+                                    </div>
+
+
+                                    <div class="detail" id="job-detail-orange">
+                                        <button class="close-btn"><i class='bx bx-window-close'></i></button>
+                                        <div class="detail-header">
+                                            <img id="detail-img" src="photos\orange.png">
+                                            <h2 id="detail-title">Orange</h2>
+                                            <p id="detail-role">Cybersecurity</p>
+                                        </div>
+                                        <hr class="divider">
+                                        <div class="detail-desc">
+                                            <div class="about">
+                                                <h4>About Company</h4>
+                                                <p id="detail-about">Orange:
+                                                    Build global telecom solutions!
+A subsidiary of Orange, Sofrecom provides expertise in telecom innovation and digital services. Interns join a diverse team working on large-scale international projects in software, data, and networks.</p>
+                                                    <a href="https://www.sofrecom.com/">Read More</a>
+                                            </div>
+                                            <hr class="divider">
+                                            <div class="detail-btn">
+                                               <button class="btn-apply">Apply Now</button>
+                                            </div>   
+                                        </div>
+                                        </div>
+
+
+                                        <div class="detail" id="job-detail-value">
+                                            <button class="close-btn"><i class='bx bx-window-close'></i></button>
+                                            <div class="detail-header">
+                                                <img id="detail-img" src="photos\value_tunisie_logo.jpg">
+                                                <h2 id="detail-title">Value</h2>
+                                                <p id="detail-role">AI Research</p>
+                                            </div>
+                                            <hr class="divider">
+                                            <div class="detail-desc">
+                                                <div class="about">
+                                                    <h4>About Company</h4>
+                                                    <p id="detail-about">Value:
+                                                        Your path to smart digital consulting!
+Value offers tech consulting and digital transformation services. Interns explore various technologies including cloud, DevOps, and ERP systems, all while collaborating with experienced consultants.</p>
+                                                        <a href="https://value.com.tn/">Read More</a>
+                                                </div>
+                                                <hr class="divider">
+                                                <div class="detail-btn">
+                                                   <button class="btn-apply">Apply Now</button>
+                                                </div>   
+                                            </div>
+                                            </div>
+
+
+                                            
+
+            
+
+
+        <footer>
+            <div class="footer-container">
+        
+                <!-- Quick Links -->
+                <div class="footer-section links">
+                    <h3>InternsHive</h3>
+                    <ul>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                        <li><a href="postJob.html">Looking for Interns?</a></li>
+                    </ul>
+                </div>
+            </div>
+        
+            <!-- Footer Bottom -->
+            <div class="footer-bottom">
+                <p>© 2025 InternsHive. All Rights Reserved</p>
+            </div>
+        </footer>
+
+    </div>
+
+    <div class="detail" id="job-detail">
+        <button class="close-btn"><i class='bx bx-window-close'></i></button>
+        <div class="detail-header">
+            <img id="detail-img" src="images\Nvidia.jpg">
+            <h2 id="detail-title">Nvidia</h2>
+            <p id="detail-role">Machine Learning Engineer</p>
+        </div>
+        <hr class="divider">
+        <div class="detail-desc">
+            <div class="about">
+                <h4>About Company</h4>
+                <p id="detail-about">NVIDIA:
+                    NVIDIA pioneers advanced computing technologies, specializing in GPUs, AI, and accelerated computing, driving innovation in gaming, data centers, and autonomous systems.</p>
+                    <a href="https://www.nvidia.com/en-me/" target="_blank">Read More</a>
+            </div>
+            <hr class="divider">
+            <div class="detail-btn">
+               <button class="btn-apply">Apply Now</button>
+            </div>          
+        </div>
+    </div>
+    </div>
+</body>
+</html>

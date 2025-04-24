@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="listOfApps.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <title>InternsHive - My Profile</title>
+</head>
+<body>
+    <div class="sidebar" id="sidebar">  
+        <!-- Profile Container -->
+        <div class="profile-container">
+            <a href="listOfApps.html" class="profile-link">
+                <div class="user-profile" id="userProfile">
+                    <div class="profile-image">
+                        <img src="photos\IMG_9525.png" width="60" height="60" alt="Profile" style="border-radius: 50%; object-fit: cover;" />
+                      </div>
+                      
+                  <div class="welcome-text">
+                    <h3>Welcome,</h3>
+                    <div class="user-name">Issra Ouedrni</div>
+                    <div class="user-title">Student</div>
+                    <div class="user-location">Monastir</div>
+                  </div>
+                </div>
+              </a>
+            </div>
+      
+        <!-- Navigation Links -->
+        <div class="nav-links">
+          <!-- Modify Profile Link -->
+          <a href="Internships.html" class="nav-link">
+            <i class="nav-icon">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04c.39-.39.39-1.02 0-1.41l-2.34-2.34c-.39-.39-1.02-.39-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z" fill="currentColor"/>
+              </svg>
+            </i>
+            <span>Internships</span>
+          </a>
+          <!-- Home Link -->
+          <a href="index.html" class="nav-link">
+            <i class="nav-icon">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8h5z" fill="currentColor"/>
+              </svg>
+            </i>
+            <span>Home</span>
+          </a>
+          <!-- Want to post an internship link -->
+          <a href="post-internship.html" class="nav-link">
+            <i class="nav-icon">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-2 10h-4v4h-2v-4H7v-2h4V7h2v4h4v2z" fill="currentColor"/>
+              </svg>
+            </i>
+            <span>Want to post an internship?</span>
+          </a>
+        </div>
+      
+        <!-- Logout Button (at the bottom) -->
+        <div class="logout-container">
+          <a href="http://localhost:3000" class="logout-button">
+            <i class="logout-icon">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M17 7l-1.41 1.41L18.17 11H8v2h10.17l-2.58 2.58L17 17l5-5-5-5zM4 5h8V3H4c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h8v-2H4V5z" fill="currentColor"/>
+              </svg>
+            </i>
+            <span>Logout</span>
+          </a>
+        </div>
+      </div>
+      
+      <!-- Main content container -->
+      <div class="main-content">
+        <div class="header">
+            <h1>My Applications</h1>
+            <div class="notifications">
+                <button class="notifications-btn" id="notificationsBtn">
+                    <i class="fas fa-bell"></i>
+                    Notifications
+                    <div class="notification-count">3</div>
+                </button>
+                
+                <!-- Notifications Panel -->
+                <div class="notifications-panel" id="notificationsPanel">
+                    <div class="notifications-header">
+                        <h3>Notifications</h3>
+                        <button class="mark-all-read">Mark all as read</button>
+                    </div>
+                    <div class="notifications-list">
+                        <!-- Unread Notification -->
+                        <div class="notification-item unread">
+                            <div class="notification-content">
+                                <div class="notification-icon">
+                                    <i class="fas fa-check-circle"></i>
+                                </div>
+                                <div class="notification-info">
+                                    <div class="notification-text">
+                                        Your application for <strong>Marketing Intern</strong> position at Global Marketing Group has been accepted!
+                                    </div>
+                                    <div class="notification-time">2 hours ago</div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Unread Notification -->
+                        <div class="notification-item unread">
+                            <div class="notification-content">
+                                <div class="notification-icon">
+                                    <i class="fas fa-calendar-check"></i>
+                                </div>
+                                <div class="notification-info">
+                                    <div class="notification-text">
+                                        You have an interview scheduled for <strong>UX Designer Intern</strong> position tomorrow at 2:00 PM.
+                                    </div>
+                                    <div class="notification-time">5 hours ago</div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Unread Notification -->
+                        <div class="notification-item unread">
+                            <div class="notification-content">
+                                <div class="notification-icon">
+                                    <i class="fas fa-file-alt"></i>
+                                </div>
+                                <div class="notification-info">
+                                    <div class="notification-text">
+                                        Your application for <strong>Software Engineer Intern</strong> is now being reviewed.
+                                    </div>
+                                    <div class="notification-time">1 day ago</div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Read Notification -->
+                        <div class="notification-item">
+                            <div class="notification-content">
+                                <div class="notification-icon">
+                                    <i class="fas fa-times-circle"></i>
+                                </div>
+                                <div class="notification-info">
+                                    <div class="notification-text">
+                                        Your application for <strong>Software Engineer Intern</strong> at TechGrowth Solutions was not selected.
+                                    </div>
+                                    <div class="notification-time">3 days ago</div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Read Notification -->
+                        <div class="notification-item">
+                            <div class="notification-content">
+                                <div class="notification-icon">
+                                    <i class="fas fa-file-alt"></i>
+                                </div>
+                                <div class="notification-info">
+                                    <div class="notification-text">
+                                        A new internship matching your profile is available: <strong>UI/UX Design Intern</strong> at DigitalCraft Studios.
+                                    </div>
+                                    <div class="notification-time">5 days ago</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        
+      
+        
+        <div class="search-filter">
+            <div class="search-box">
+                <input type="text" placeholder="Search applications...">
+                <button>
+                    <i class="fas fa-search"></i>
+                </button>
+            </div>
+            <select class="filter-select">
+                <option value="all">All Status</option>
+                <option value="pending">Pending</option>
+                <option value="reviewing">Reviewing</option>
+                <option value="interviewed">Interviewed</option>
+                <option value="accepted">Accepted</option>
+                <option value="rejected">Rejected</option>
+            </select>
+            <select class="filter-select">
+                <option value="all">All Companies</option>
+                <option value="tech">Tech Companies</option>
+                <option value="finance">Finance</option>
+                <option value="marketing">Marketing</option>
+                <option value="design">Design</option>
+            </select>
+        </div>
+        
+        <div class="applications-grid">
+            <!-- Application Card 1 -->
+            <div class="application-card">
+                <div class="application-header">
+                    <div class="application-title">
+                        <h3>Software Engineer Intern</h3>
+                        <p>Cyberesa</p>
+                    </div>
+                    <div class="status-badge status-reviewing">Reviewing</div>
+                </div>
+                <div class="application-body">
+                    <div class="company-info">
+                        <div class="company-logo">
+                            <img src="photos\Cybersa.jpg" alt="Company Logo">
+                        </div>
+                        <div>
+                            <div class="company-name">Cybersa</div>
+                            <div class="company-location">
+                                <i class="fas fa-map-marker-alt"></i>Centre Urbain Nord, 1082 Tunis, Tunisia
+                            </div>
+                        </div>
+                    </div>
+                    <div class="application-details">
+                        <div class="detail-item">
+                            <div class="detail-label">Duration</div>
+                            <div class="detail-value">Summer Internship</div>
+                        </div>
+                        <div class="detail-item">
+                            <div class="detail-label">Salary</div>
+                            <div class="detail-value">Free</div>
+                        </div>
+                        <div class="detail-item">
+                            <div class="detail-label">Type</div>
+                            <div class="detail-value">Full-time</div>
+                        </div>
+                        <div class="detail-item">
+                            <div class="detail-label">Remote</div>
+                            <div class="detail-value">Hybrid</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="application-footer">
+                    <div class="application-date">Applied: April 5, 2025</div>
+                    <a href="#" class="view-details">View Details</a>
+                </div>
+            </div>
+            
+            <!-- Application Card 2 -->
+            <div class="application-card">
+                <div class="application-header">
+                    <div class="application-title">
+                        <h3>Data Analyst Intern</h3>
+                        <p>DataVora</p>
+                    </div>
+                    <div class="status-badge status-pending">Pending</div>
+                </div>
+                <div class="application-body">
+                    <div class="company-info">
+                        <div class="company-logo">
+                            <img src="photos\datavora.png" alt="Company Logo">
+                        </div>
+                        <div>
+                            <div class="company-name">DataVora</div>
+                            <div class="company-location">
+                                <i class="fas fa-map-marker-alt"></i> 1053 Les Berges du Lac, Tunis, Tunisia
+                            </div>
+                        </div>
+                    </div>
+                    <div class="application-details">
+                        <div class="detail-item">
+                            <div class="detail-label">Duration</div>
+                            <div class="detail-value">PFE Internship</div>
+                        </div>
+                        <div class="detail-item">
+                            <div class="detail-label">Salary</div>
+                            <div class="detail-value">Free</div>
+                        </div>
+                        <div class="detail-item">
+                            <div class="detail-label">Type</div>
+                            <div class="detail-value">Part-time</div>
+                        </div>
+                        <div class="detail-item">
+                            <div class="detail-label">Remote</div>
+                            <div class="detail-value">On-site</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="application-footer">
+                    <div class="application-date">Applied: April 7, 2025</div>
+                    <a href="#" class="view-details">View Details</a>
+                </div>
+            </div>
+            
+            <!-- Application Card 3 -->
+            <div class="application-card">
+                <div class="application-header">
+                    <div class="application-title">
+                        <h3>UX Designer Intern</h3>
+                        <p>InstaDeep</p>
+                    </div>
+                    <div class="status-badge status-interviewed">Interviewed</div>
+                </div>
+                <div class="application-body">
+                    <div class="company-info">
+                        <div class="company-logo">
+                            <img src="photos\InstaDeep.png" alt="Company Logo">
+                        </div>
+                        <div>
+                            <div class="company-name">InstaDeep</div>
+                            <div class="company-location">
+                                <i class="fas fa-map-marker-alt"></i> Les Berges du Lac 3, 2089 Tunis, Tunisia
+                            </div>
+                        </div>
+                    </div>
+                    <div class="application-details">
+                        <div class="detail-item">
+                            <div class="detail-label">Duration</div>
+                            <div class="detail-value">Summer Internship</div>
+                        </div>
+                        <div class="detail-item">
+                            <div class="detail-label">Salary</div>
+                            <div class="detail-value">Free</div>
+                        </div>
+                        <div class="detail-item">
+                            <div class="detail-label">Type</div>
+                            <div class="detail-value">Full-time</div>
+                        </div>
+                        <div class="detail-item">
+                            <div class="detail-label">Remote</div>
+                            <div class="detail-value">Remote</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="application-footer">
+                    <div class="application-date">Applied: April 2, 2025</div>
+                    <a href="#" class="view-details">View Details</a>
+                </div>
+            </div>
+            
+            <!-- Application Card 4 -->
+            <div class="application-card">
+                <div class="application-header">
+                    <div class="application-title">
+                        <h3>Marketing Intern</h3>
+                        <p>IntilaQ</p>
+                    </div>
+                    <div class="status-badge status-accepted">Accepted</div>
+                </div>
+                <div class="application-body">
+                    <div class="company-info">
+                        <div class="company-logo">
+                            <img src="photos\IntilaQ.webp" alt="Company Logo">
+                        </div>
+                        <div>
+                            <div class="company-name">IntilaQ</div>
+                            <div class="company-location">
+                                <i class="fas fa-map-marker-alt"></i> Km 3.5 Route de Raoued, Ariana, Tunisia
+                            </div>
+                        </div>
+                    </div>
+                    <div class="application-details">
+                        <div class="detail-item">
+                            <div class="detail-label">Duration</div>
+                            <div class="detail-value">Summer Internship</div>
+                        </div>
+                        <div class="detail-item">
+                            <div class="detail-label">Salary</div>
+                            <div class="detail-value">Free</div>
+                        </div>
+                        <div class="detail-item">
+                            <div class="detail-label">Type</div>
+                            <div class="detail-value">Full-time</div>
+                        </div>
+                        <div class="detail-item">
+                            <div class="detail-label">Remote</div>
+                            <div class="detail-value">Hybrid</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="application-footer">
+                    <div class="application-date">Applied: March 28, 2025</div>
+                    <a href="#" class="view-details">View Details</a>
+                </div>
+            </div>
+            
+            <!-- Application Card 5 -->
+            <div class="application-card">
+                <div class="application-header">
+                    <div class="application-title">
+                        <h3>Software Engineer Intern</h3>
+                        <p>OCT</p>
+                    </div>
+                    <div class="status-badge status-rejected">Rejected</div>
+                </div>
+                <div class="application-body">
+                    <div class="company-info">
+                        <div class="company-logo">
+                            <img src="photos\oct.png" alt="Company Logo">
+                        </div>
+                        <div>
+                            <div class="company-name">OCT</div>
+                            <div class="company-location">
+                                <i class="fas fa-map-marker-alt"></i> Route Al-Battah, Radès, Ben Arous, Tunisia
+                            </div>
+                        </div>
+                    </div>
+                    <div class="application-details">
+                        <div class="detail-item">
+                            <div class="detail-label">Duration</div>
+                            <div class="detail-value">PFE Internship</div>
+                        </div>
+                        <div class="detail-item">
+                            <div class="detail-label">Salary</div>
+                            <div class="detail-value">Free</div>
+                        </div>
+                        <div class="detail-item">
+                            <div class="detail-label">Type</div>
+                            <div class="detail-value">Full-time</div>
+                        </div>
+                        <div class="detail-item">
+                            <div class="detail-label">Remote</div>
+                            <div class="detail-value">On-site</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="application-footer">
+                    <div class="application-date">Applied: April 3, 2025</div>
+                    <a href="#" class="view-details">View Details</a>
+                </div>
+            </div>
+            
+            <!-- Application Card 6 -->
+            <div class="application-card">
+                <div class="application-header">
+                    <div class="application-title">
+                        <h3>Data Analyst Intern</h3>
+                        <p>Orange</p>
+                    </div>
+                    <div class="status-badge status-pending">Pending</div>
+                </div>
+                <div class="application-body">
+                    <div class="company-info">
+                        <div class="company-logo">
+                            <img src="photos\orange.png" alt="Company Logo">
+                        </div>
+                        <div>
+                            <div class="company-name">Orange</div>
+                            <div class="company-location">
+                                <i class="fas fa-map-marker-alt"></i> Les Berges du Lac 1, 1053 Tunis, Tunisia
+                            </div>
+                        </div>
+                    </div>
+                    <div class="application-details">
+                        <div class="detail-item">
+                            <div class="detail-label">Duration</div>
+                            <div class="detail-value">Summer Internship</div>
+                        </div>
+                        <div class="detail-item">
+                            <div class="detail-label">Salary</div>
+                            <div class="detail-value">Free</div>
+                        </div>
+                        <div class="detail-item">
+                            <div class="detail-label">Type</div>
+                            <div class="detail-value">Part-time</div>
+                        </div>
+                        <div class="detail-item">
+                            <div class="detail-label">Remote</div>
+                            <div class="detail-value">Remote</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="application-footer">
+                    <div class="application-date">Applied: April 8, 2025</div>
+                    <a href="#" class="view-details">View Details</a>
+                </div>
+            </div>
+        </div>
+        
+
+    <footer>
+        <div class="footer-container">
+            <!-- Quick Links -->
+            <div class="footer-section links">
+                <h3>InternsHive</h3>
+                <ul>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                    <li><a href="postJob.html">Looking for Interns?</a></li>
+                </ul>
+            </div>
+        </div>
+    
+        <!-- Footer Bottom -->
+        <div class="footer-bottom">
+            <p>© 2025 InternsHive. All Rights Reserved</p>
+        </div>
+    </footer>
+
+    <script src="listOfApps.js"></script>
+</body>
+</html>

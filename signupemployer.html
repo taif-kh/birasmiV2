@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Employer Sign Up | CareerConnect</title>
+    <meta
+      name="description"
+      content="Register your company on CareerConnect to find talented students"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    />
+    <link rel="stylesheet" href="signupemployer.css" />
+  </head>
+  <body>
+    <div class="auth-container">
+      <img
+        class="logo1"
+        src="photos/InternshipHive-removebg-preview (1).png"
+        alt="Logo1"
+      />
+      <div
+        class="logo"
+        style="
+          margin: 0 auto;
+          height: 80px;
+          width: 80px;
+          border-radius: 50%;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          font-size: 2rem;
+          font-weight: bold;
+        "
+      ></div>
+      <div class="auth-header">
+        <h1>Employer Registration</h1>
+        <p>Create your company account to find talented students</p>
+      </div>
+
+      <form class="auth-form">
+        <div class="form-group">
+          <label for="company-name">Company Name</label>
+          <input
+            type="text"
+            id="company-name"
+            class="form-control"
+            placeholder="Enter your company name"
+            required
+          />
+        </div>
+
+        <div class="form-group">
+          <label for="industry">Industry</label>
+          <select id="industry" class="form-control" required>
+            <option value="" disabled selected>Select your industry</option>
+            <option value="tech">Technology</option>
+            <option value="finance">Finance</option>
+            <option value="healthcare">Healthcare</option>
+            <option value="education">Education</option>
+            <option value="manufacturing">Manufacturing</option>
+            <option value="other">Other</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="company-size">Company Size</label>
+          <select id="company-size" class="form-control" required>
+            <option value="" disabled selected>Select company size</option>
+            <option value="1-10">1-10 employees</option>
+            <option value="11-50">11-50 employees</option>
+            <option value="51-200">51-200 employees</option>
+            <option value="201-500">201-500 employees</option>
+            <option value="501+">501+ employees</option>
+          </select>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="country">Country</label>
+            <select id="country" class="form-control" required>
+              <option value="" disabled selected>Select country</option>
+              <option value="us">France</option>
+              <option value="uk">Germany</option>
+              <option value="ca">Canada</option>
+              <option value="fr">Marroco</option>
+              <option value="de">Algeria</option>
+              <option value="us">Tunisia</option>
+              <option value="other">Other</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="city">City</label>
+            <input
+              type="text"
+              id="city"
+              class="form-control"
+              placeholder="Enter city"
+              required
+            />
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="website">Company Website</label>
+          <input
+            type="url"
+            id="website"
+            class="form-control"
+            placeholder="https://yourcompany.com"
+          />
+        </div>
+
+        <div class="form-group">
+          <label for="contact-name">Contact Person Name</label>
+          <input
+            type="text"
+            id="contact-name"
+            class="form-control"
+            placeholder="Full name of contact person"
+            required
+          />
+        </div>
+
+        <div class="form-group">
+          <label for="contact-email">Contact Email</label>
+          <i class="fas fa-envelope input-icon"></i>
+          <input
+            type="email"
+            id="contact-email"
+            class="form-control"
+            placeholder="Enter your professional email"
+            required
+          />
+        </div>
+
+        <div class="form-group">
+          <label for="contact-phone">Contact Phone</label>
+          <i class="fas fa-phone input-icon"></i>
+          <input
+            type="tel"
+            id="contact-phone"
+            class="form-control"
+            placeholder="Enter your phone number"
+          />
+        </div>
+
+        <div class="form-group">
+          <label for="password">Create Password</label>
+          <i class="fas fa-lock input-icon"></i>
+          <input
+            type="password"
+            id="password"
+            class="form-control"
+            placeholder="Create a password"
+            required
+            oninput="checkPasswordStrength(this.value)"
+          />
+          <div class="password-strength">
+            <div class="strength-meter" id="strengthMeter"></div>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="confirm-password">Confirm Password</label>
+          <i class="fas fa-lock input-icon"></i>
+          <input
+            type="password"
+            id="confirm-password"
+            class="form-control"
+            placeholder="Confirm your password"
+            required
+          />
+        </div>
+
+        <div class="form-group" style="font-size: 0.8rem; color: var(--gray)">
+          <input
+            type="checkbox"
+            id="terms"
+            required
+            style="width: auto; margin-right: 8px"
+          />
+          <label for="terms"
+            >I agree to the
+            <a href="#" style="color: var(--primary)">Terms of Service</a> and
+            <a href="#" style="color: var(--primary)">Privacy Policy</a></label
+          >
+        </div>
+
+        <button
+          type="submit"
+          class="btn"
+          onclick=" location.href='http://localhost:3000/welcome-employer' "
+        >
+          Create Employer Account
+        </button>
+      </form>
+
+      <div class="auth-footer">
+        Already have an account? <a href="signin.html">Sign in instead</a><br />
+        Are you a student? <a href="signupstudent.html">Register as student</a>
+      </div>
+    </div>
+
+    <script>
+      function checkPasswordStrength(password) {
+        const strengthMeter = document.getElementById("strengthMeter");
+        let strength = 0;
+
+        // Check length
+        if (password.length >= 8) strength += 1;
+        if (password.length >= 12) strength += 1;
+
+        // Check for mixed case
+        if (password.match(/[a-z]/)) strength += 0.5;
+        if (password.match(/[A-Z]/)) strength += 0.5;
+
+        // Check for numbers
+        if (password.match(/\d/)) strength += 1;
+
+        // Check for special chars
+        if (password.match(/[^a-zA-Z0-9]/)) strength += 1;
+
+        // Update meter
+        const width = Math.min(100, strength * 25);
+        strengthMeter.style.width = width + "%";
+
+        // Update color
+        if (width < 40) {
+          strengthMeter.style.backgroundColor = "var(--error)";
+        } else if (width < 70) {
+          strengthMeter.style.backgroundColor = "orange";
+        } else {
+          strengthMeter.style.backgroundColor = "var(--success)";
+        }
+      }
+    </script>
+  </body>
+</html>

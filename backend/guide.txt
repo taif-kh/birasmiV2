@@ -1,0 +1,8 @@
+cd my-express-app
+npm init -y
+
+npm install express
+
+node --watch app.js
+
+Go to ====>       localhost/3000

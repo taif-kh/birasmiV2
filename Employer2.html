@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="Employer2.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <title>InternsHive - My Profile</title>
+</head>
+<body>
+    <div class="sidebar" id="sidebar">  
+        
+        <!-- Navigation Section -->
+        <div class="nav-section">
+          <div class="nav-section-header">Navigation</div>
+          <div class="nav-links">
+            <!-- My Offers Link -->
+            <a href="Employer1.html" class="nav-link ">
+              <div class="nav-icon">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M20 6H4V8H20V6ZM20 10H4V12H20V10ZM20 14H4V16H20V14ZM20 18H4V20H20V18Z" fill="currentColor"/>
+                </svg>
+              </div>
+              <span>My Offres</span>
+            </a>
+            
+            <!-- List of Applicants Link -->
+            <a href="Employer2.html" class="nav-link active">
+              <div class="nav-icon">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M16 11C17.66 11 18.99 9.66 18.99 8C18.99 6.34 17.66 5 16 5C14.34 5 13 6.34 13 8C13 9.66 14.34 11 16 11ZM8 11C9.66 11 10.99 9.66 10.99 8C10.99 6.34 9.66 5 8 5C6.34 5 5 6.34 5 8C5 9.66 6.34 11 8 11ZM8 13C5.67 13 1 14.17 1 16.5V19H15V16.5C15 14.17 10.33 13 8 13ZM16 13C15.71 13 15.38 13.02 15.03 13.05C16.19 13.89 17 15.02 17 16.5V19H23V16.5C23 14.17 18.33 13 16 13Z" fill="currentColor"/>
+                </svg>
+              </div>
+              <span>Liste of Applicants</span>
+            </a>
+            
+            <!-- Applicants Status Link -->
+            <a href="Employer3.html" class="nav-link">
+              <div class="nav-icon">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M19 3H5C3.9 3 3 3.9 3 5V19C3 20.1 3.9 21 5 21H19C20.1 21 21 20.1 21 19V5C21 3.9 20.1 3 19 3ZM9 17H7V10H9V17ZM13 17H11V7H13V17ZM17 17H15V13H17V17Z" fill="currentColor"/>
+                </svg>
+              </div>
+              <span>Applicants Status</span>
+            </a>
+          </div>
+        </div>
+
+
+        <!-- Main content section for applicants list -->
+
+        
+        <!-- Logout Container -->
+        <div class="logout-container">
+            <a href="postInternship.html" class="logout-button">
+              <i class="logout-icon">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z" fill="currentColor"/>
+                </svg>
+              </i>
+              <span>Post an Internship</span>
+            </a>
+          </div>
+    </div>
+
+
+    <div class="main-content">
+
+        <div class="profile-container">
+            <a href="company.html" class="profile-link">
+                <div class="profile-circle">
+                    <img src="photos\vermeg_logo.jpg" alt="Profile Picture" class="profile-image">
+                </div>
+            </a>
+        </div>
+        
+        <div class="header">
+            <h1>List of Applicants</h1>
+            <div class="filter-section">
+                <div class="search-container">
+                    <input type="text" id="search-input" placeholder="Search applicants...">
+                    <button id="search-button"><i class="fas fa-search"></i></button>
+                </div>
+                <div class="filter-container">
+                    <select id="filter-status">
+                        <option value="all">All Status</option>
+                        <option value="pending">Pending</option>
+                        <option value="reviewing">Reviewing</option>
+                        <option value="interviewed">Interviewed</option>
+                        <option value="accepted">Accepted</option>
+                        <option value="rejected">Rejected</option>
+                    </select>
+                    <select id="filter-position">
+                        <option value="all">All Positions</option>
+                        <option value="software-engineer">Software Engineer</option>
+                        <option value="data-analyst">Data Analyst</option>
+                        <option value="ux-designer">UX Designer</option>
+                        <option value="marketing">Marketing</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+    
+        <div class="applicants-container">
+            <div class="applicants-list">
+                <!-- Applicant cards will be populated here by JavaScript -->
+            </div>
+            
+            <div class="pagination">
+                <button id="prev-page" disabled><i class="fas fa-chevron-left"></i></button>
+                <span id="page-indicator">Page 1 of 3</span>
+                <button id="next-page"><i class="fas fa-chevron-right"></i></button>
+            </div>
+        </div>
+        
+        <!-- Applicant Detail Modal -->
+        <div id="applicant-modal" class="modal">
+            <div class="modal-content">
+                <span class="close-btn">&times;</span>
+                <div class="applicant-detail">
+                    <div class="profile-header">
+                        <div class="applicant-avatar">
+                            <img id="modal-avatar" src="" alt="Applicant Photo">
+                        </div>
+                        <div class="applicant-info-header">
+                            <h2 id="modal-name"></h2>
+                            <p id="modal-position"></p>
+                            <div id="modal-status" class="status-badge"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="profile-body">
+                        <div class="info-section">
+                            <h3>Contact Information</h3>
+                            <div class="info-grid">
+                                <div class="info-item">
+                                    <span class="info-label">Email:</span>
+                                    <span id="modal-email" class="info-value"></span>
+                                </div>
+                                <div class="info-item">
+                                    <span class="info-label">Phone:</span>
+                                    <span id="modal-phone" class="info-value"></span>
+                                </div>
+                                <div class="info-item">
+                                    <span class="info-label">Location:</span>
+                                    <span id="modal-location" class="info-value"></span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="info-section">
+                            <h3>Education</h3>
+                            <div id="modal-education"></div>
+                        </div>
+                        
+                        <div class="info-section">
+                            <h3>Skills</h3>
+                            <div id="modal-skills" class="skills-container"></div>
+                        </div>
+                        
+                        <div class="info-section">
+                            <h3>Applied For</h3>
+                            <p id="modal-job-title"></p>
+                            <p id="modal-apply-date"></p>
+                        </div>
+                    </div>
+                    
+                    <div class="actions-container">
+                        <div class="download-links">
+                            <a href="#" id="download-cv" class="download-button"><i class="fas fa-file-pdf"></i> Download CV</a>
+                            <a href="#" id="download-cover" class="download-button"><i class="fas fa-file-alt"></i> Download Cover Letter</a>
+                        </div>
+                        <div class="status-actions">
+                            <select id="change-status">
+                                <option value="pending">Pending</option>
+                                <option value="reviewing">Reviewing</option>
+                                <option value="interviewed">Interviewed</option>
+                                <option value="accepted">Accept</option>
+                                <option value="rejected">Reject</option>
+                            </select>
+                            <button id="update-status" class="primary-button">Update Status</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <footer>
+        <div class="footer-container">
+            <!-- Quick Links -->
+            <div class="footer-section links">
+                <h3>InternsHive</h3>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                    <li><a href="Internships.html">Looking for Internships?</a></li>
+                </ul>
+            </div>
+        </div>
+    
+        <!-- Footer Bottom -->
+        <div class="footer-bottom">
+            <p>© 2025 InternsHive. All Rights Reserved</p>
+        </div>
+    </footer>
+
+    <script src="Employer2.js"></script>
+</body>
+</html>

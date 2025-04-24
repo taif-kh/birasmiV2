@@ -1,0 +1,275 @@
+:root {
+    --primary: #b388ff; 
+    --primary-dark: #6a49a3; 
+    --secondary: #986be4; 
+    --light: #f8f9fa;
+    --dark: #212529;
+    --gray: #6c757d;
+    --light-gray: #e9ecef;
+    --error: #f72585;
+    --success: #4cc9f0;
+  }
+  .logo1{
+    width: 200px;
+    height: auto;
+}
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+    color: var(--dark);
+    line-height: 1.6;
+  }
+  
+  .auth-container {
+    background: white;
+    padding: 40px;
+    border-radius: 16px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+    width: 100%;
+    max-width: 500px;
+    animation: fadeIn 0.5s ease-out;
+  }
+  
+  .logo {
+    width: 80px;
+    margin: 0 auto 25px;
+    display: block;
+  }
+  
+  .auth-header {
+    text-align: center;
+    margin-bottom: 30px;
+  }
+  
+  .auth-header h1 {
+    font-size: 1.8rem;
+    margin-bottom: 8px;
+    color: var(--primary);
+    font-weight: 600;
+  }
+  
+  .auth-header p {
+    font-size: 0.95rem;
+    color: var(--gray);
+  }
+  
+  .auth-form {
+    margin-bottom: 25px;
+  }
+  
+  .form-group {
+    margin-bottom: 20px;
+    position: relative;
+  }
+  
+  .form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: var(--dark);
+  }
+  
+  .form-control {
+    width: 100%;
+    padding: 12px 15px;
+    border: 1px solid var(--light-gray);
+    border-radius: 8px;
+    font-size: 0.95rem;
+    transition: all 0.3s;
+    background-color: var(--light);
+  }
+  
+  .form-control:focus {
+    border-color: var(--primary);
+    box-shadow: 0 0 0 3px rgba(67, 97, 238, 0.2);
+    outline: none;
+    background-color: white;
+  }
+  
+  select.form-control {
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='%236c757d' viewBox='0 0 16 16'%3E%3Cpath d='M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 15px center;
+    background-size: 16px 12px;
+  }
+  
+  .input-icon {
+    position: absolute;
+    left: 15px;
+    top: 40px;
+    color: var(--gray);
+    font-size: 0.95rem;
+  }
+  
+  .btn {
+    width: 100%;
+    padding: 14px;
+    background-color: var(--primary);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s;
+    margin-top: 10px;
+  }
+  
+  .btn:hover {
+    background-color: var(--primary-dark);
+    transform: translateY(-2px);
+  }
+  
+  .btn:active {
+    transform: translateY(0);
+  }
+  
+  .auth-footer {
+    text-align: center;
+    margin-top: 25px;
+    font-size: 0.9rem;
+    color: var(--gray);
+  }
+  
+  .auth-footer a {
+    color: var(--primary);
+    text-decoration: none;
+    font-weight: 500;
+  }
+  
+  .auth-footer a:hover {
+    text-decoration: underline;
+  }
+  
+  .password-strength {
+    height: 4px;
+    background: var(--light-gray);
+    border-radius: 2px;
+    margin-top: 8px;
+    overflow: hidden;
+  }
+  
+  .strength-meter {
+    height: 100%;
+    width: 0;
+    background: var(--error);
+    transition: all 0.3s;
+  }
+  
+  .form-row {
+    display: flex;
+    gap: 15px;
+  }
+  
+  .form-row .form-group {
+    flex: 1;
+  }
+  
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  @media (max-width: 600px) {
+    .auth-container {
+      padding: 30px 20px;
+    }
+    
+    .auth-header h1 {
+      font-size: 1.5rem;
+    }
+    
+    .form-row {
+      flex-direction: column;
+      gap: 0;
+    }
+  }
+  /* CV Upload Section Styles */
+  .upload-section {
+    margin-top: 50px;
+    background: white;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+.upload-container {
+    max-width: 600px;
+    margin: 0 auto;
+}
+.upload-title {
+    color: #6a0dad;
+    margin-bottom: 20px;
+}
+.upload-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+.form-group {
+    text-align: left;
+}
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+}
+.form-group input, .form-group textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-family: 'Poppins', sans-serif;
+}
+.file-upload {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    border: 2px dashed #6a0dad;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+.file-upload:hover {
+    background: #f3e5ff;
+}
+.file-upload i {
+    font-size: 48px;
+    color: #6a0dad;
+    margin-bottom: 10px;
+}
+.file-upload input {
+    display: none;
+}
+.file-info {
+    margin-top: 10px;
+    font-size: 14px;
+    color: #666;
+}
+.submit-btn {
+    align-self: center;
+}
+.success-message {
+    color: green;
+    margin-top: 20px;
+    display: none;
+}

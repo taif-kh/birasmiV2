@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>InternsHive - Contact Page</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="contact.css" />
+  </head>
+  <body>
+    <div class="container">
+      <header>
+        <div class="logo">
+          <img src="photos\InternshipHive.jpg" alt="Logo" />
+        </div>
+        <nav>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="contact.html" class="active">Contact</a></li>
+            <li><a href="postJob.html">Employers/Post an Internship</a></li>
+          </ul>
+        </nav>
+      </header>
+
+      <main class="contact-main">
+        <div class="contact-content">
+          <div class="contact-info">
+            <h1>Contact <span class="highlight">Us</span></h1>
+            <p class="contact-desc">
+              Whether you have <span class="highlight">questions</span> about
+              our features or internship opportunities, or if you would like to
+              <span class="highlight">collaborate</span> with us,
+              <span class="highlight">our team</span> is ready to answer all
+              your questions. We would be delighted to hear from
+              <span class="highlight">you</span>.
+            </p>
+
+            <div class="contact-illustration">
+              <img
+                src="photos\Contact us-amico.svg"
+                alt="Contact Illustration"
+              />
+            </div>
+
+            <h2>How to reach us <span class="highlight">?</span></h2>
+
+            <div class="contact-methods">
+              <div class="contact-method">
+                <span class="contact-icon">📧</span>
+                <div class="contact-details">
+                  <span class="contact-label">Email:</span>
+                  <span class="contact-value">contact@internshive.com</span>
+                </div>
+              </div>
+
+              <div class="contact-method">
+                <span class="contact-icon">📞</span>
+                <div class="contact-details">
+                  <span class="contact-label">Telephone:</span>
+                  <span class="contact-value">+123 456 789</span>
+                </div>
+              </div>
+
+              <div class="contact-method">
+                <span class="contact-icon">🏢</span>
+                <div class="contact-details">
+                  <span class="contact-label">Address:</span>
+                  <span class="contact-value"
+                    >123 Innovation Street, Tech Hub Building, Suite 456, San
+                    Francisco, CA</span
+                  >
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="contact-form-container">
+            <h2><span class="highlight">Please fill out the form</span></h2>
+            <form class="contact-form">
+              <div class="form-group">
+                <label for="name">Full Name</label>
+                <input type="text" id="name" placeholder="Full Name" required />
+              </div>
+
+              <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" placeholder="Email" required />
+              </div>
+
+              <div class="form-group">
+                <label for="message">Message</label>
+                <textarea
+                  id="message"
+                  placeholder="Leave your message here..."
+                  rows="6"
+                  required
+                ></textarea>
+              </div>
+
+              <button type="submit" class="submit-btn">Send</button>
+            </form>
+
+            <p class="response-message">We will get back to you soon.</p>
+          </div>
+        </div>
+      </main>
+    </div>
+
+    <footer>
+      <div class="footer-container">
+        <!-- Call-to-Action Section -->
+        <div class="footer-section cta">
+          <h3>Embark on this rewarding journey</h3>
+          <p>
+            Join thousands of students and companies thriving with InternsHive.
+          </p>
+          <button
+            class="subscribe-btn"
+            onclick=" location.href='http://localhost:3000/sign-up' "
+          >
+            Sign Up Now!
+            <svg
+              width="16"
+              height="16"
+              viewBox="0 0 24 24"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M5 12H19M19 12L12 5M19 12L12 19"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+            </svg>
+          </button>
+        </div>
+
+        <!-- Quick Links -->
+        <div class="footer-section links">
+          <h3>InternsHive</h3>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="postJob.html">Looking for Interns?</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Footer Bottom -->
+      <div class="footer-bottom">
+        <p>© 2025 InternsHive. All Rights Reserved</p>
+      </div>
+    </footer>
+  </body>
+</html>
