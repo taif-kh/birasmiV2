@@ -1,62 +1,111 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Sign In | CareerConnect</title>
-  <meta name="description" content="Sign in to access your CareerConnect account as a student or employer">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-  <link rel="stylesheet" href="login.css">
-</head>
-<body>
-  <div class="auth-container">
-    <img class="logo1"src="photos/InternshipHive-removebg-preview (1).png" alt="Logo1" >
-    <div class="logo" style="margin: 0 auto; height: 80px; width: 80px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 2rem; font-weight: bold;"></div>
-    
-    <div class="auth-header">
-      <h1>Welcome Back</h1>
-      <p>Sign in to continue to your CareerConnect account</p>
-    </div>
-    
-    <div class="social-login">
-      <button class="social-btn google" title="Sign in with Google">
-        <i class="fab fa-google"></i>
-      </button>
-      <button class="social-btn facebook" title="Sign in with Facebook">
-        <i class="fab fa-facebook-f"></i>
-      </button>
-      <button class="social-btn linkedin" title="Sign in with LinkedIn">
-        <i class="fab fa-linkedin-in"></i>
-      </button>
-    </div>
-    
-    <div class="divider">OR</div>
-    
-    <form class="auth-form">
-      <div class="form-group">
-        <label for="email">Email Address</label>
-        <i class="fas fa-envelope input-icon"></i>
-        <input type="email" id="email" class="form-control" placeholder="Enter your email" required>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sign In | CareerConnect</title>
+    <meta
+      name="description"
+      content="Sign in to access your CareerConnect account as a student or employer"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    />
+    <link rel="stylesheet" href="login.css" />
+  </head>
+  <body>
+    <div class="auth-container">
+      <img
+        class="logo1"
+        src="photos/InternshipHive-removebg-preview (1).png"
+        alt="Logo1"
+      />
+      <div
+        class="logo"
+        style="
+          margin: 0 auto;
+          height: 80px;
+          width: 80px;
+          border-radius: 50%;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          font-size: 2rem;
+          font-weight: bold;
+        "
+      ></div>
+
+      <div class="auth-header">
+        <h1>Welcome Back</h1>
+        <p>Sign in to continue to your CareerConnect account</p>
       </div>
-      
-      <div class="form-group">
-        <label for="password">Password</label>
-        <i class="fas fa-lock input-icon"></i>
-        <input type="password" id="password" class="form-control" placeholder="Enter your password" required>
-        <div style="text-align: right; margin-top: 5px;">
-          <a href="forgetpassword.html" style="font-size: 0.8rem; color: var(--primary);">Forgot password?</a>
+
+      <div class="social-login">
+        <button class="social-btn google" title="Sign in with Google">
+          <i class="fab fa-google"></i>
+        </button>
+        <button class="social-btn facebook" title="Sign in with Facebook">
+          <i class="fab fa-facebook-f"></i>
+        </button>
+        <button class="social-btn linkedin" title="Sign in with LinkedIn">
+          <i class="fab fa-linkedin-in"></i>
+        </button>
+      </div>
+
+      <div class="divider">OR</div>
+
+      <form class="auth-form">
+        <div class="form-group">
+          <label for="email">Email Address</label>
+          <i class="fas fa-envelope input-icon"></i>
+          <input
+            type="email"
+            id="email"
+            class="form-control"
+            placeholder="Enter your email"
+            required
+          />
         </div>
+
+        <div class="form-group">
+          <label for="password">Password</label>
+          <i class="fas fa-lock input-icon"></i>
+          <input
+            type="password"
+            id="password"
+            class="form-control"
+            placeholder="Enter your password"
+            required
+          />
+          <div style="text-align: right; margin-top: 5px">
+            <a
+              style="font-size: 0.8rem; color: var(--primary); cursor: pointer"
+            >
+              Forgot password?</a
+            >
+            <!-- href="forgetpassword.html" -->
+          </div>
+        </div>
+
+        <button
+          type="submit"
+          class="btn"
+          onclick=" location.href='http://localhost:3000/welcome-student' "
+        >
+          Sign In
+        </button>
+      </form>
+
+      <div class="auth-footer">
+        Don't have an account? <a href="signin.html">Sign up now</a>
       </div>
-      
-      <button type="submit" class="btn">Sign In</button>
-    </form>
-    
-    <div class="auth-footer">
-      Don't have an account? <a href="signin.html">Sign up now</a>
     </div>
-  </div>
-</body>
+  </body>
 </html>
