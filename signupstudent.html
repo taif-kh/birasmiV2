@@ -1,224 +1,197 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Student Sign Up | CareerConnect</title>
-  <meta name="description" content="Create your student account on CareerConnect">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-  <link rel="stylesheet" href="signupstudent.css">
-</head>
-<body>
-  <div class="auth-container">
-    <img class="logo1"src="photos/InternshipHive-removebg-preview (1).png" alt="Logo1" >
-    <div class="logo" style="margin: 0 auto; height: 80px; width: 80px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 2rem; font-weight: bold;"></div>
-    
-    <div class="auth-header">
-      <h1>Student Registration</h1>
-      <p>Create your account to find internships and opportunities</p>
-    </div>
-    
-    <form class="auth-form">
-      <div class="form-row">
-        <div class="form-group">
-          <label for="first-name">First Name</label>
-          <input type="text" id="first-name" class="form-control" placeholder="Enter your first name" required>
-        </div>
-        <div class="form-group">
-          <label for="last-name">Last Name</label>
-          <input type="text" id="last-name" class="form-control" placeholder="Enter your last name" required>
-        </div>
-      </div>
-      
-      <div class="form-group">
-        <label for="email">University Email</label>
-        <i class="fas fa-envelope input-icon"> </i>
-        <input type="email" id="email" class="form-control" placeholder="Enter your university email" required>
-      </div>
-      
-      <div class="form-group">
-        <label for="university">University</label>
-        <select id="university" class="form-control" required>
-          <option value="" disabled selected>Select your university</option>
-          <option value="harvard">Harvard University</option>
-          <option value="stanford">Stanford University</option>
-          <option value="mit">Massachusetts Institute of Technology</option>
-          <option value="other">Other University</option>
-        </select>
-      </div>
-      
-      <div class="form-group">
-        <label for="field">Field of Study</label>
-        <select id="field" class="form-control" required>
-          <option value="" disabled selected>Select your field</option>
-          <option value="cs">Computer Science</option>
-          <option value="engineering">Engineering</option>
-          <option value="business">Business Administration</option>
-          <option value="medicine">Medicine</option>
-          <option value="arts">Arts & Humanities</option>
-          <option value="other">Other</option>
-        </select>
-      </div>
-      
-      <div class="form-group">
-        <label for="degree">Degree Level</label>
-        <select id="degree" class="form-control" required>
-          <option value="" disabled selected>Select your degree</option>
-          <option value="bachelor">Bachelor's Degree</option>
-          <option value="master">Master's Degree</option>
-          <option value="phd">PhD</option>
-          <option value="other">Other</option>
-        </select>
-      </div>
-      
-      <div class="form-group">
-        <label for="graduation">Expected Graduation</label>
-        <input type="month" id="graduation" class="form-control" required>
-      </div>
-      
-      <div class="form-group">
-        <label for="password">Create Password</label>
-        <i class="fas fa-lock input-icon"></i>
-        <input type="password" id="password" class="form-control" placeholder="Create a password" required oninput="checkPasswordStrength(this.value)">
-        <div class="password-strength">
-          <div class="strength-meter" id="strengthMeter"></div>
-        </div>
-      </div>
-      
-      <div class="form-group">
-        <label for="confirm-password">Confirm Password</label>
-        <i class="fas fa-lock input-icon"></i>
-        <input type="password" id="confirm-password" class="form-control" placeholder="Confirm your password" required>
-      </div>
-      
-      <div class="form-group" style="font-size: 0.8rem; color: var(--gray);">
-        <input type="checkbox" id="terms" required style="width: auto; margin-right: 8px;">
-        <label for="terms">I agree to the <a href="#" style="color: var(--primary);">Terms of Service</a> and <a href="#" style="color: var(--primary);">Privacy Policy</a></label>
-      </div>
-      
-      <div class="form-group" style="font-size: 0.8rem; color: var(--gray);">
-        <input type="checkbox" id="newsletter" style="width: auto; margin-right: 8px;">
-        <label for="newsletter">I want to receive career opportunities and updates</label>
-      </div>
-      <div class="upload-section">
-        <div class="upload-container">
-            <h2 class="upload-title">Submit Your CV for Recruitment</h2>
-            <form id="cv-upload-form" class="upload-form" onsubmit="handleSubmit(event)">
-                
-                <div class="form-group">
-                    <label for="position">Position Applying For</label>
-                    <input type="text" id="position" name="position" required>
-                </div>
-                <div class="form-group">
-                    <label>Upload Your CV (PDF or DOCX)</label>
-                    <div class="file-upload" onclick="document.getElementById('cv-file').click()">
-                        <i class="fas fa-cloud-upload-alt"></i>
-                        <p>Click to upload or drag and drop</p>
-                        <input type="file" id="cv-file" name="cv" accept=".pdf,.doc,.docx" required>
-                        <div class="file-info" id="file-info">No file selected</div>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label for="message">Additional Information</label>
-                    <textarea id="message" name="message" rows="4"></textarea>
-                </div>
-            </form>
-            <div class="success-message" id="success-message">
-                <i class="fas fa-check-circle"></i> Your application has been submitted successfully!
-            </div>
-        </div>
-      <button type="submit" class="btn" onclick=" location.href='http://localhost:3000/welcome-student' ">Create Student Account</button>
-    </form>
-    
-    <div class="auth-footer">
-      Already have an account? <a href="signin.html">Sign in instead</a><br>
-      Are you an employer? <a href="signupemployer.html">Register your company</a>
-    </div>
-  </div>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Student Sign Up | CareerConnect</title>
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    />
+    <link rel="stylesheet" href="signupstudent.css" />
+  </head>
+  <body>
+    <div class="auth-container">
+      <img
+        class="logo1"
+        src="photos/InternshipHive-removebg-preview (1).png"
+        alt="Logo1"
+      />
 
-  <script>
-    function checkPasswordStrength(password) {
-      const strengthMeter = document.getElementById('strengthMeter');
-      let strength = 0;
-      
-      // Check length
-      if (password.length >= 8) strength += 1;
-      if (password.length >= 12) strength += 1;
-      
-      // Check for mixed case
-      if (password.match(/[a-z]/)) strength += 0.5;
-      if (password.match(/[A-Z]/)) strength += 0.5;
-      
-      // Check for numbers
-      if (password.match(/\d/)) strength += 1;
-      
-      // Check for special chars
-      if (password.match(/[^a-zA-Z0-9]/)) strength += 1;
-      
-      // Update meter
-      const width = Math.min(100, strength * 25);
-      strengthMeter.style.width = width + '%';
-      
-      // Update color
-      if (width < 40) {
-        strengthMeter.style.backgroundColor = 'var(--error)';
-      } else if (width < 70) {
-        strengthMeter.style.backgroundColor = 'orange';
-      } else {
-        strengthMeter.style.backgroundColor = 'var(--success)';
-      }
-    }
-     // CV Upload Functionality
-     document.getElementById('cv-file').addEventListener('change', function(e) {
-            const fileInfo = document.getElementById('file-info');
-            if (this.files.length > 0) {
-                const file = this.files[0];
-                fileInfo.textContent = `Selected: ${file.name} (${(file.size / 1024 / 1024).toFixed(2)} MB)`;
-            } else {
-                fileInfo.textContent = 'No file selected';
-            }
-        });
-        
-        function handleSubmit(event) {
-            event.preventDefault();
-            
-            // In a real application, you would send the form data to a server here
-            // For demonstration, we'll just show a success message
-            
-            // Get form data
-            const formData = new FormData(event.target);
-            const fileInput = document.getElementById('cv-file');
-            
-            // Validate file type
-            const allowedTypes = ['application/pdf', 'application/msword', 'application/vnd.openxmlformats-officedocument.wordprocessingml.document'];
-            if (fileInput.files.length > 0) {
-                const fileType = fileInput.files[0].type;
-                if (!allowedTypes.includes(fileType)) {
-                    alert('Please upload a PDF or Word document');
-                    return;
-                }
-                
-                // Check file size (max 5MB)
-                if (fileInput.files[0].size > 5 * 1024 * 1024) {
-                    alert('File size should not exceed 5MB');
-                    return;
-                }
-            }
-            
-            // Show success message
-            document.getElementById('success-message').style.display = 'block';
-            document.getElementById('cv-upload-form').reset();
-            document.getElementById('file-info').textContent = 'No file selected';
-            
-            // Hide success message after 5 seconds
-            setTimeout(() => {
-                document.getElementById('success-message').style.display = 'none';
-            }, 5000);
+      <div class="auth-header">
+        <h1>Student Registration</h1>
+        <p>Create your account to find internships and opportunities</p>
+      </div>
+
+      <form class="auth-form" id="signupForm">
+        <div class="form-row">
+          <div class="form-group">
+            <label for="first-name">First Name</label>
+            <input
+              type="text"
+              id="first-name"
+              name="firstName"
+              class="form-control"
+              required
+            />
+          </div>
+          <div class="form-group">
+            <label for="last-name">Last Name</label>
+            <input
+              type="text"
+              id="last-name"
+              name="lastName"
+              class="form-control"
+              required
+            />
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="email">University Email</label>
+          <i class="fas fa-envelope input-icon"></i>
+          <input
+            type="email"
+            id="email"
+            name="email"
+            class="form-control"
+            required
+          />
+        </div>
+
+        <div class="form-group">
+          <label for="university">University</label>
+          <select
+            id="university"
+            name="university"
+            class="form-control"
+            required
+          >
+            <option value="" disabled selected>Select your university</option>
+            <option value="harvard">Harvard University</option>
+            <option value="stanford">Stanford University</option>
+            <option value="mit">MIT</option>
+            <option value="other">Other</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="field">Field of Study</label>
+          <select id="field" name="field" class="form-control" required>
+            <option value="" disabled selected>Select your field</option>
+            <option value="cs">Computer Science</option>
+            <option value="engineering">Engineering</option>
+            <option value="business">Business</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="degree">Degree Level</label>
+          <select id="degree" name="degree" class="form-control" required>
+            <option value="" disabled selected>Select your degree</option>
+            <option value="bachelor">Bachelor's</option>
+            <option value="master">Master's</option>
+            <option value="phd">PhD</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="graduation">Expected Graduation</label>
+          <input
+            type="month"
+            id="graduation"
+            name="graduation"
+            class="form-control"
+            required
+          />
+        </div>
+
+        <div class="form-group">
+          <label for="password">Create Password</label>
+          <i class="fas fa-lock input-icon"></i>
+          <input
+            type="password"
+            id="password"
+            name="password"
+            class="form-control"
+            required
+          />
+        </div>
+
+        <div class="form-group">
+          <label for="confirm-password">Confirm Password</label>
+          <i class="fas fa-lock input-icon"></i>
+          <input
+            type="password"
+            id="confirm-password"
+            class="form-control"
+            required
+          />
+        </div>
+
+        <div class="form-group terms">
+          <input type="checkbox" id="terms" required />
+          <label for="terms">I agree to the Terms and Privacy Policy</label>
+        </div>
+
+        <button type="submit" class="btn">Create Student Account</button>
+      </form>
+
+      <div class="auth-footer">
+        Already have an account? <a href="login.html">Sign in</a><br />
+        Are you an employer?
+        <a href="signupemployer.html">Register your company</a>
+      </div>
+    </div>
+
+    <script>
+      document
+        .getElementById("signupForm")
+        .addEventListener("submit", async function (e) {
+          e.preventDefault();
+
+          // Get all form values
+          const formData = {
+            firstName: document.getElementById("first-name").value,
+            lastName: document.getElementById("last-name").value,
+            email: document.getElementById("email").value,
+            password: document.getElementById("password").value,
+            university: document.getElementById("university").value,
+            field: document.getElementById("field").value,
+            degree: document.getElementById("degree").value,
+            graduation: document.getElementById("graduation").value,
+          };
+
+          // Verify passwords match
+          const confirmPassword =
+            document.getElementById("confirm-password").value;
+          if (formData.password !== confirmPassword) {
+            alert("Passwords don't match!");
+            return;
           }
-        
-  </script>
-</body>
+
+          try {
+            const response = await fetch("/signup", {
+              method: "POST",
+              headers: { "Content-Type": "application/json" },
+              body: JSON.stringify(formData),
+            });
+
+            const result = await response.json();
+            if (response.ok) {
+              alert("Account created successfully!");
+              window.location.href = "/welcome-student";
+            } else {
+              alert(result.error || "Error creating account");
+            }
+          } catch (error) {
+            alert("Network error: " + error.message);
+          }
+        });
+    </script>
+  </body>
 </html>
